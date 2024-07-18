@@ -45,7 +45,7 @@ encabezado($row['descripcion_for']);
 <table class="Tbl3">
     <tr>
         <td>Identificación:</td>
-        <td><?php echo $row['tipo_iden']+' '+$row['identificacion'];?></td>
+        <td><?php echo $row['tipo_iden'].' '.$row['identificacion'];?></td>
     </tr>
     <tr>
         <td>Nombre:</td>

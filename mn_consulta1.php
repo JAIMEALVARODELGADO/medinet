@@ -7,6 +7,7 @@ session_start();
 if(isset($_GET['id_ingreso'])){
     $_SESSION['gid_ingreso']=$_GET['id_ingreso'];
     $_SESSION['gid_consulta']="";
+    $_SESSION['gid_formato']=$_GET['id_formato'];
 }
 
 ?>
@@ -91,7 +92,7 @@ WHERE id_ingreso='$_SESSION[gid_ingreso]'";
 $consultaing=$link->query($consultaing);
 if($consultaing->num_rows<>0){
     $rowing=$consultaing->fetch_array();
-    $paciente=$row['paciente'];
+    //$paciente=$row['paciente'];
     $diag_prin=$rowing['diag_prin'];
     $diag_rel1=$rowing['diag_rel1'];
     $nombre_cie=$rowing['nombre_cie'];
@@ -153,9 +154,7 @@ $extremi_hallazgo_efis="";
 
 //Aqui consulto la informacion de consultas abiertas
 $consultacon="SELECT vw_consulta.id_consulta,vw_consulta.fecha_con,vw_consulta.reingreso_con,vw_consulta.quien_con,vw_consulta.motivo_con,vw_consulta.enfermedad_con,vw_consulta.revsistemas_con,vw_consulta.anteced_per_con,vw_consulta.anteced_fam_con,vw_consulta.diag_prin,CONCAT(vw_consulta.codigo_cie,' ',vw_consulta.descripcion_cie) AS dxprinc,vw_consulta.diag_rel1,
-CONCAT(vw_consulta.codigo_cierel1,' ',vw_consulta.descripcion_cierel1) AS dxrelac1,
-
-vw_consulta.observacion_con,vw_consulta.id_cups,vw_consulta.descripcion_cups,vw_consulta.finalidad_con,vw_consulta.causaexte_con,vw_consulta.analisis_con,vw_consulta.plan_con,vw_consulta.estado_con
+CONCAT(vw_consulta.codigo_cierel1,' ',vw_consulta.descripcion_cierel1) AS dxrelac1,vw_consulta.observacion_con,vw_consulta.id_cups,vw_consulta.descripcion_cups,vw_consulta.finalidad_con,vw_consulta.causaexte_con,vw_consulta.analisis_con,vw_consulta.plan_con,vw_consulta.estado_con
 FROM vw_consulta WHERE id_ingreso='$_SESSION[gid_ingreso]' AND id_operador='$_SESSION[gid_usuario]' and estado_con='A'";
 //echo $consultacon;
 $consultacon=$link->query($consultacon);
@@ -181,7 +180,7 @@ if($consultacon->num_rows<>0){
     $causaexte_con=$rowcon['causaexte_con'];
     $analisis_con=$rowcon['analisis_con'];
     $plan_con=$rowcon['plan_con'];
-    $_SESSION['gid_consulta']=$id_consulta;    
+    $_SESSION['gid_consulta']=$id_consulta;
 }
 
 //Aqui consulto los signos vitales
@@ -231,7 +230,7 @@ if($consultaefis->num_rows<>0){
     <?php
     require("mn_datos_consulta.php");
     ?>
-    <input type="hidden" id="id_formato" name='id_formato' value="<?php echo $_GET['id_formato'];?>">    
+    <input type="hidden" id="id_formato" name='id_formato' value="<?php echo $_SESSION['gid_formato'];?>">  
     <input type="hidden" id="id_consulta" name='id_consulta' value="<?php echo $id_consulta;?>">
     <br><button type="button" id='btnguardar' onclick='validar()'><span class="icon-save"></span> Guardar</button>
     <script type="text/javascript" language='JavaScript'>

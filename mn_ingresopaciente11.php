@@ -63,12 +63,14 @@ if($link->affected_rows > 0){
 }
 else{$msg="Registro no guardado";}
 if(!empty($_POST['nombre_acud1'])){
-    $sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco) VALUES(0,$id_ingreso,'$_POST[nombre_acud1]','$_POST[telefono_acud1]','$_POST[direccion_acud1]','$_POST[parentesco1]')";
+    $sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco,tipo_identificacion,identificacion,correo,fecha_nacimiento) 
+    VALUES(0,$id_ingreso,'$_POST[nombre_acud1]','$_POST[telefono_acud1]','$_POST[direccion_acud1]','$_POST[parentesco1]','$_POST[tipo_identificacion1]','$_POST[identificacion1]','$_POST[correo1]','$_POST[fecha_nacimiento1]')";
     //echo "<br>".$sql_;
     $link->query($sql_);
 }
 if(!empty($_POST['nombre_acud2'])){
-    $sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco) VALUES(0,$id_ingreso,'$_POST[nombre_acud2]','$_POST[telefono_acud2]','$_POST[direccion_acud2]','$_POST[parentesco2]')";
+    $sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco,tipo_identificacion,identificacion,correo,fecha_nacimiento) 
+    VALUES(0,$id_ingreso,'$_POST[nombre_acud2]','$_POST[telefono_acud2]','$_POST[direccion_acud2]','$_POST[parentesco2]','$_POST[tipo_identificacion2]','$_POST[identificacion2]','$_POST[correo2]','$_POST[fecha_nacimiento2]')";
     //echo "<br>".$sql_;
     $link->query($sql_);
 }

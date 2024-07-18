@@ -1,4 +1,4 @@
-        <div class="fila">
+    <div class="fila">
         <span class="etiqueta"><label for="identificacion">Paciente:</label></span>
         <span class="form-el">
             <input type='text' class='texto' name='nombre_pac' size='60' readonly="true" />
@@ -102,50 +102,50 @@
         <div class="fila">
             <span class="etiqueta"><label for="cabeza_estado_efis">Cabeza</label></span>
             <span class="etiqueta">
-                <input type='text' id='cabeza_estado_efis' name='cabeza_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='cabeza_estado_efis' name='cabeza_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='cabeza_hallazgo_efis' name='cabeza_hallazgo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='cabeza_hallazgo_efis' name='cabeza_hallazgo_efis'  maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
         <div class="fila">
             <span class="etiqueta"><label for="cuello_estado_efis">Cuello</label></span>
             <span class="etiqueta">
-                <input type='text' id='cuello_estado_efis' name='cuello_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='cuello_estado_efis' name='cuello_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='cuello_hallazdo_efis' name='cuello_hallazdo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='cuello_hallazdo_efis' name='cuello_hallazdo_efis' maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
         <div class="fila">
             <span class="etiqueta"><label for="torax_estado_efis">Torax</label></span>
             <span class="etiqueta">
-                <input type='text' id='torax_estado_efis' name='torax_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='torax_estado_efis' name='torax_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='torax_hallazgo_efis' name='torax_hallazgo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='torax_hallazgo_efis' name='torax_hallazgo_efis' maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
         <div class="fila">
             <span class="etiqueta"><label for="abdomen_estado_efis">Abdomen</label></span>
             <span class="etiqueta">
-                <input type='text' id='abdomen_estado_efis' name='abdomen_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='abdomen_estado_efis' name='abdomen_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='abdomen_hallazgo_efis' name='abdomen_hallazgo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='abdomen_hallazgo_efis' name='abdomen_hallazgo_efis' maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
         <div class="fila">
             <span class="etiqueta"><label for="columna_estado_efis">Columna</label></span>
             <span class="etiqueta">
-                <input type='text' id='columna_estado_efis' name='columna_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='columna_estado_efis' name='columna_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='columna_hallazgo_efis' name='columna_hallazgo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='columna_hallazgo_efis' name='columna_hallazgo_efis' maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
         <div class="fila">
             <span class="etiqueta"><label for="extremi_estado_efis">Extremidades</label></span>
             <span class="etiqueta">
-                <input type='text' id='extremi_estado_efis' name='extremi_estado_efis' size='40' maxlength='50' />
+                <input type='text' id='extremi_estado_efis' name='extremi_estado_efis' size='30' maxlength='50' />
             </span>
             <span class="etiqueta">
-                <textarea id='extremi_hallazgo_efis' name='extremi_hallazgo_efis' size='80' maxlength='900' cols="90" rows="1"></textarea></span>
+                <textarea id='extremi_hallazgo_efis' name='extremi_hallazgo_efis' maxlength='900' cols="70" rows="4"></textarea></span>
         </div>
 <!------------------------------->
 
@@ -172,7 +172,6 @@
         <span class="etiqueta"><label for="observacion_con">Observación:</label></span>
         <span class="form-el">
             <textarea id='observacion_con' name='observacion_con' maxlength='2000' cols="100" rows="4"></textarea>
-            <!--<input type='text' id='observacion_con' name='observacion_con' size='120' maxlength='200' />-->
         </span>
         </div>
 

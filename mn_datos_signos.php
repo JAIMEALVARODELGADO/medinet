@@ -17,7 +17,7 @@
         </div>
         <div class="fila">
         <span class="etiqueta"><label for="fecha_nut">Fecha y Hora:</label></span>
-        <span class="form-el"><input type='text' id='fecha_nut' name='fecha_nut' value='<?php echo $hoy;?>' required='required' disabled=true/>
+        <span class="form-el"><input type='date' id='fecha_nut' name='fecha_nut' value='<?php echo $hoy;?>' required='required'/>
         <input type='time' id='hora' name='hora' value='<?php echo $hora;?>' required='required'/>
         </span>
         </div>
