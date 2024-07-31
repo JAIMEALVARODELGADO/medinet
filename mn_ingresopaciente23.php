@@ -28,7 +28,7 @@ session_start();
                 var_="telefono_acud"+cont_;
                 cmd_="document.form1."+var_+".value";
                 document.form1.telefono_acud.value=eval(cmd_);
-                if(eval(cmd_)==''){error+="Tel閒ono\n";}
+                if(eval(cmd_)==''){error+="Tel锟絝ono\n";}
                 var_="direccion_acud"+cont_;
                 cmd_="document.form1."+var_+".value";
                 document.form1.direccion_acud.value=eval(cmd_);
@@ -46,6 +46,14 @@ session_start();
             }
         }
         function editar(cont_){
+            var_="tipo_identificacion"+cont_;
+            cmd_='document.form1.'+var_+'.disabled=false';
+            eval(cmd_);
+            
+            var_="identificacion"+cont_;
+            cmd_='document.form1.'+var_+'.disabled=false';
+            eval(cmd_);
+
             var_="nombre_acud"+cont_;
             cmd_='document.form1.'+var_+'.disabled=false';
             eval(cmd_);
@@ -55,6 +63,12 @@ session_start();
             var_="direccion_acud"+cont_;
             cmd_='document.form1.'+var_+'.disabled=false';
             eval(cmd_);
+            var_="correo"+cont_;
+            cmd_='document.form1.'+var_+'.disabled=false';
+            eval(cmd_)
+            var_="fecha_nacimiento"+cont_;
+            cmd_='document.form1.'+var_+'.disabled=false';
+            eval(cmd_)
             var_="parentesco"+cont_;
             cmd_='document.form1.'+var_+'.disabled=false';
             eval(cmd_);
@@ -70,7 +84,7 @@ session_start();
             var error='';
             if(document.form1.nombre_acud.value==''){error+="Nombre\n";}
             if(document.form1.telefono_acud.value==''){error+="Telefono\n";}
-            if(document.form1.direccion_acud.value==''){error+="Direcci髇\n";}
+            if(document.form1.direccion_acud.value==''){error+="Direcci锟絥\n";}
             if(document.form1.parentesco.value==''){error+="Parentesco\n";}
             if(error!=""){
                 alert("Para continuar, debe completar la siguiente informacion:\n"+error);
@@ -145,13 +159,13 @@ if($consulta->num_rows > 0){
 }
 ?>
 <form name='form1' method="post" action="mn_ingresopaciente231.php">
-<fieldset><legend>Informaci髇 del Paciente</legend>
+<fieldset><legend>Informaci贸n del Paciente</legend>
     <div class="fila">
-    <span class="etiqueta"><label>Tipo de Identificaci髇:</label></span>
+    <span class="etiqueta"><label>Tipo de Identificaci贸n:</label></span>
     <span class="form-el"><?php echo $tipo_iden;?></span>        
     </div>
     <div class="fila">
-    <span class="etiqueta"><label>N鷐ero de Identificaci髇:</label></span>
+    <span class="etiqueta"><label>N煤mero de Identificaci贸n:</label></span>
     <span class="form-el"><?php echo $identificacion;?></span>
     </div>
     <div class="fila">
@@ -175,15 +189,19 @@ if($consulta->num_rows > 0){
     ?>
     <br><br>
     <fieldset><legend>Acudientes</legend>
-    <table width="50%">
+    <table>
             <th colspan='2'>Opciones</th>
+            <th>Tp.Ident</th>
+            <th>Nro.Identificaci贸n</th>
             <th>Nombre</th>
-            <th>Tel閒ono</th>
-            <th>Direcci髇</th>
-            <th>Parentesco</th>
+            <th>Tel茅fono</th>
+            <th>Direcci贸n</th>
+            <!--<th>Correo</th>
+            <th>F. de Nacimiento</th>
+            <th>Parentesco</th>-->
             <th><span class='icon-save '></span></th>
             <?php
-            $consulta_acudiente="SELECT id_acudiente,nombre_acud,telefono_acud,direccion_acud,parentesco FROM acudiente WHERE id_ingreso='$_GET[id_ingreso]'";
+            $consulta_acudiente="SELECT id_acudiente,nombre_acud,telefono_acud,direccion_acud,parentesco,tipo_identificacion,identificacion,correo,fecha_nacimiento FROM acudiente WHERE id_ingreso='$_GET[id_ingreso]'";
             //echo "<br>".$consulta_acudiente;
             $consulta_acudiente=$link->query($consulta_acudiente);
             if($consulta_acudiente->num_rows<>0){
@@ -193,31 +211,65 @@ if($consulta->num_rows > 0){
                     echo "<td><a href='#' onclick=editar($cont) title='Editar' class='btnhref'><span class='icon-edit'></span></a></td>";
                     echo "<td><a href='#' onclick=eliminar($rowacu[id_acudiente]) title='Eliminar' class='btnhref'><span class='icon-trash Eliminar'></span></a></td>";
                     echo "<td>";
-                    $var='id_acudiente'.$cont;
+                    $var='id_acudiente'.$cont;                    
                     echo "<input type='hidden' name='$var' value='$rowacu[id_acudiente]'/>";
+                    
+                    $var='tipo_identificacion'.$cont;
+                    echo "<input type='text' name='$var' size='2' maxlength='2' value='$rowacu[tipo_identificacion]' disabled='true'>";
+                    echo "</td>";
+
+                    echo "<td>";
+                    $var='identificacion'.$cont;
+                    echo "<input type='text' name='$var' size='10' maxlength='10' value='$rowacu[identificacion]' disabled='true'>";
+                    echo "</td>";
+
+                    echo "<td>";
                     $var='nombre_acud'.$cont;
-                    echo "<input type='text' name='$var' size='50' maxlength='50' value='$rowacu[nombre_acud]' disabled='true'>";
+                    echo "<input type='text' name='$var' size='30' maxlength='50' value='$rowacu[nombre_acud]' disabled='true'>";
                     echo "</td>";
                     $var='telefono_acud'.$cont;
-                    echo "<td><input type='text' name='$var' size='30' maxlength='30' value='$rowacu[telefono_acud]' disabled='true'></td>";
+                    echo "<td><input type='text' name='$var' size='10' maxlength='30' value='$rowacu[telefono_acud]' disabled='true'></td>";
                     $var='direccion_acud'.$cont;
-                    echo "<td><input type='text' name='$var' size='80' maxlength='80' value='$rowacu[direccion_acud]' disabled='true'></td>";
+                    echo "<td><input type='text' name='$var' size='35' maxlength='80' value='$rowacu[direccion_acud]' disabled='true'></td>";
+
+                    echo "</tr>";
+                    echo "<tr>";
+                    //echo "<td></td><td></td>";
+
+                    echo "<td colspan='4'>";
+                    echo "<b>Correo</b><br>";
+                    $var='correo'.$cont;
+                    echo "<input type='text' name='$var' size='50' maxlength='100' value='$rowacu[correo]' disabled='true'>";
+                    echo "</td>";
+                    
+                    echo "<td>";
+                    echo "<b>Fecha de Nacimiento</b><br>";
+                    $var='fecha_nacimiento'.$cont;
+                    echo "<input type='date' name='$var' value='$rowacu[fecha_nacimiento]' disabled='true'>";
+                    echo "</td>";
+
+
                     $var='parentesco'.$cont;
-                    echo "<td><input type='text' name='$var' size='30' maxlength='30' value='$rowacu[parentesco]' disabled='true'></td>";
+                    echo "<td>";
+                    echo "<b>Parentesco</b><br>";
+                    echo "<input type='text' name='$var' size='10' maxlength='30' value='$rowacu[parentesco]' disabled='true'>";
+                    echo "</td>";
+
+                    echo"<td></td>";
                     echo "<td align='center'><a href='#' onclick=validar($cont) title='Guardar' class='btnhref'><span class='icon-save'></span></a> </td>";
                     echo "</tr>";
                     $cont++;
                 }
             }
             ?>
-            <tr>
+            <!--<tr>
                 <td colspan="2" align="rigth"><span class='icon-add-user '></span>Nuevo</td>
                 <td><input type="text" name="nombre_acud" size="50" maxlength="50"></td>
                 <td><input type="text" name="telefono_acud" size="30" maxlength="30"></td>
                 <td><input type="text" name="direccion_acud" size="80" maxlength="80"></td>
                 <td><input type="text" name="parentesco" size="30" maxlength="30"></td>
                 <td align='center'><a href='#' onclick="guardarnuevo()" title='Guardar' class='btnhref'><span class='icon-save'></span></a></td>
-            </tr>
+            </tr>-->
         </table>
         </fieldset>
     <input type='hidden' name='id_acudiente'>
