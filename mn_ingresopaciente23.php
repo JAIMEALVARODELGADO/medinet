@@ -13,7 +13,7 @@ session_start();
         <title>Medinet</title>
     </head>
     <script language="JavaScript">
-        function validar(cont_){
+        function validar(cont_){            
             var error='';
             var_="nombre_acud"+cont_;
             cmd_="document.form1."+var_+".disabled";
@@ -21,6 +21,15 @@ session_start();
                 var_="id_acudiente"+cont_;
                 cmd_="document.form1."+var_+".value";
                 document.form1.id_acudiente.value=eval(cmd_);
+
+                var_="tipo_identificacion"+cont_;
+                cmd_="document.form1."+var_+".value";
+                document.form1.tipo_identificacion.value=eval(cmd_);
+                
+                var_="identificacion"+cont_;
+                cmd_="document.form1."+var_+".value";
+                document.form1.identificacion.value=eval(cmd_);
+
                 var_="nombre_acud"+cont_;
                 cmd_="document.form1."+var_+".value";
                 document.form1.nombre_acud.value=eval(cmd_);
@@ -33,6 +42,15 @@ session_start();
                 cmd_="document.form1."+var_+".value";
                 document.form1.direccion_acud.value=eval(cmd_);
                 if(eval(cmd_)==''){error+="Direccion\n";}
+
+                var_="correo"+cont_;
+                cmd_="document.form1."+var_+".value";
+                document.form1.correo.value=eval(cmd_);
+
+                var_="fecha_nacimiento"+cont_;
+                cmd_="document.form1."+var_+".value";
+                document.form1.fecha_nacimiento.value=eval(cmd_);
+
                 var_="parentesco"+cont_;
                 cmd_="document.form1."+var_+".value";
                 document.form1.parentesco.value=eval(cmd_);
@@ -41,7 +59,7 @@ session_start();
                     alert("Para continuar, debe completar la siguiente informacion:\n"+error);
                 }
                 else{
-                    document.form1.submit();
+                    //document.form1.submit();
                 }
             }
         }
@@ -262,14 +280,41 @@ if($consulta->num_rows > 0){
                 }
             }
             ?>
-            <!--<tr>
+            <tr>
                 <td colspan="2" align="rigth"><span class='icon-add-user '></span>Nuevo</td>
-                <td><input type="text" name="nombre_acud" size="50" maxlength="50"></td>
-                <td><input type="text" name="telefono_acud" size="30" maxlength="30"></td>
-                <td><input type="text" name="direccion_acud" size="80" maxlength="80"></td>
-                <td><input type="text" name="parentesco" size="30" maxlength="30"></td>
-                <td align='center'><a href='#' onclick="guardarnuevo()" title='Guardar' class='btnhref'><span class='icon-save'></span></a></td>
-            </tr>-->
+
+                <td>
+                    <select id='tipo_identificacion' name='tipo_identificacion'>
+                    <option value=""></option>
+                    <option value="CC">CC</option>
+                    <option value="PA">PA</option>
+                    <option value="CE">CE</option>
+                    </select>
+                </td>
+
+                <td><input type='text' name='identificacion' size='10' maxlength='10'></td>
+
+                <td><input type="text" name="nombre_acud" size="30" maxlength="50"></td>
+                <td><input type="text" name="telefono_acud" size="10" maxlength="30"></td>
+
+                <td><input type="text" name="direccion_acud" size="35" maxlength="80"></td>
+                
+            </tr>
+            <tr>
+                <td colspan='4'>
+                    <b>Correo</b><br>
+                    <input type='text' name='correo' size='50' maxlength='100'>
+                </td>
+                <td>
+                    <b>Fecha de Nacimiento</b><br>
+                    <input type='date' name='fecha_nacimiento'>
+                </td>
+                <td>
+                    <b>Parentesco</b><br>
+                    <input type="text" name="parentesco" size="10" maxlength="30">
+                </td>
+                <td align='center'><a href='#' onclick="guardarnuevo()" title='Guardar' class='btnhref'><span class='icon-save'></span></a></td>-->
+            </tr>
         </table>
         </fieldset>
     <input type='hidden' name='id_acudiente'>
