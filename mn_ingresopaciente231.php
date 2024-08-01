@@ -31,10 +31,10 @@ if(!isset($_SESSION['gid_usuario'])){
 require("mn_funciones.php");
 //require("pp_menu.php");
 $link=conectarbd();
-$sql_="UPDATE acudiente SET nombre_acud='$_POST[nombre_acud]', telefono_acud='$_POST[telefono_acud]', direccion_acud='$_POST[direccion_acud]', parentesco='$_POST[parentesco]' WHERE id_acudiente='$_POST[id_acudiente]'";
+$sql_="UPDATE acudiente SET nombre_acud='$_POST[nombre_acud]', telefono_acud='$_POST[telefono_acud]', direccion_acud='$_POST[direccion_acud]', parentesco='$_POST[parentesco]',tipo_identificacion='$_POST[tipo_identificacion]', identificacion='$_POST[identificacion]',correo='$_POST[correo]',fecha_nacimiento='$_POST[fecha_nacimiento]' WHERE id_acudiente='$_POST[id_acudiente]'";
 //echo "<br>".$sql_;
 $link->query($sql_);
-$id_ingreso=$_POST[id_ingreso];
+$id_ingreso=$_POST['id_ingreso'];
 ?>
 <body onload="continuar('<?php echo $id_ingreso;?>')">
 <form name='form1' method="post" action="mn_ingresopaciente23.php">

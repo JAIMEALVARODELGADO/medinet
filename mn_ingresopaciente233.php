@@ -31,7 +31,8 @@ if(!isset($_SESSION['gid_usuario'])){
 require("mn_funciones.php");
 //require("pp_menu.php");
 $link=conectarbd();
-$sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco) VALUES(0,'$_POST[id_ingreso]', '$_POST[nombre_acud]', '$_POST[telefono_acud]', '$_POST[direccion_acud]', '$_POST[parentesco]')";
+$sql_="INSERT INTO acudiente(id_acudiente, id_ingreso, nombre_acud, telefono_acud, direccion_acud, parentesco,tipo_identificacion,identificacion,correo,fecha_nacimiento) 
+VALUES(0,'$_POST[id_ingreso]', '$_POST[nombre_acud]', '$_POST[telefono_acud]', '$_POST[direccion_acud]', '$_POST[parentesco]' , '$_POST[tipo_identificacion]', '$_POST[identificacion]', '$_POST[correo]', '$_POST[fecha_nacimiento]')";
 //echo "<br>".$sql_;
 $link->query($sql_);
 $id_ingreso=$_POST['id_ingreso'];

@@ -59,7 +59,7 @@ session_start();
                     alert("Para continuar, debe completar la siguiente informacion:\n"+error);
                 }
                 else{
-                    //document.form1.submit();
+                    document.form1.submit();
                 }
             }
         }
@@ -214,9 +214,7 @@ if($consulta->num_rows > 0){
             <th>Nombre</th>
             <th>Teléfono</th>
             <th>Dirección</th>
-            <!--<th>Correo</th>
-            <th>F. de Nacimiento</th>
-            <th>Parentesco</th>-->
+            
             <th><span class='icon-save '></span></th>
             <?php
             $consulta_acudiente="SELECT id_acudiente,nombre_acud,telefono_acud,direccion_acud,parentesco,tipo_identificacion,identificacion,correo,fecha_nacimiento FROM acudiente WHERE id_ingreso='$_GET[id_ingreso]'";
@@ -292,18 +290,18 @@ if($consulta->num_rows > 0){
                     </select>
                 </td>
 
-                <td><input type='text' name='identificacion' size='10' maxlength='10'></td>
+                <td><input type='text' name='identificacion' size='10' maxlength='10' placeholder='Identificación'></td>
 
-                <td><input type="text" name="nombre_acud" size="30" maxlength="50"></td>
-                <td><input type="text" name="telefono_acud" size="10" maxlength="30"></td>
+                <td><input type="text" name="nombre_acud" size="30" maxlength="50" placeholder='Nombre'></td>
+                <td><input type="text" name="telefono_acud" size="10" maxlength="30" placeholder='Telefono'></td>
 
-                <td><input type="text" name="direccion_acud" size="35" maxlength="80"></td>
+                <td><input type="text" name="direccion_acud" size="35" maxlength="80" placeholder='Dirección'></td>
                 
             </tr>
             <tr>
                 <td colspan='4'>
                     <b>Correo</b><br>
-                    <input type='text' name='correo' size='50' maxlength='100'>
+                    <input type='text' name='correo' size='50' maxlength='100' placeholder='Correo'>
                 </td>
                 <td>
                     <b>Fecha de Nacimiento</b><br>
@@ -311,7 +309,7 @@ if($consulta->num_rows > 0){
                 </td>
                 <td>
                     <b>Parentesco</b><br>
-                    <input type="text" name="parentesco" size="10" maxlength="30">
+                    <input type="text" name="parentesco" size="10" maxlength="30" placeholder='Parentesco'>
                 </td>
                 <td align='center'><a href='#' onclick="guardarnuevo()" title='Guardar' class='btnhref'><span class='icon-save'></span></a></td>-->
             </tr>
