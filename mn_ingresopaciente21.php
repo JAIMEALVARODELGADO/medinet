@@ -67,7 +67,8 @@ require("mn_funciones.php");
 require("mn_menu.php");
 require("mn_menu_ingreso.php");
 $link=conectarbd();
-$consulta="SELECT id_ingreso,tipo_iden,identificacion,papellido,sapellido,pnombre,snombre,fecha_nacim,direccion,telefono,sexo,jornada,fecha_ing,peso,id_eps,control_esfin,desplazam,alimentacion_indep,comunicacion_verbal,alergia_medicame,alergia_alimento,observacion_ing,diag_prin,diag_rel1,codigo_cie,descripcion_cie,cie_rel1,desc_cie_rel1 FROM vw_ingreso WHERE id_ingreso='$_GET[id_ingreso]'";
+$consulta="SELECT id_ingreso,tipo_iden,identificacion,papellido,sapellido,pnombre,snombre,fecha_nacim,direccion,telefono,sexo,jornada,fecha_ing,peso,id_eps,control_esfin,desplazam,alimentacion_indep,comunicacion_verbal,alergia_medicame,alergia_alimento,observacion_ing,diag_prin,diag_rel1,codigo_cie,descripcion_cie,cie_rel1,desc_cie_rel1,estado
+FROM vw_ingreso WHERE id_ingreso='$_GET[id_ingreso]'";
 //echo "<br>".$consulta;
 $consulta=$link->query($consulta);
 if($consulta->num_rows > 0){
@@ -88,6 +89,7 @@ if($consulta->num_rows > 0){
     $diag_rel1=$row['diag_rel1'];
     $diag_principal=$row['codigo_cie'].' '.$row['descripcion_cie'];
     $diag_relacionado=$row['cie_rel1'].' '.$row['desc_cie_rel1'];
+    $estado=$row['estado'];
 }
 ?>
 <form name='form1' method="post" action="mn_ingresopaciente211.php">
@@ -119,6 +121,7 @@ if($consulta->num_rows > 0){
         document.form1.diag_prin.value='<?php echo $diag_prin;?>';
         document.form1.diag_relacionado.value='<?php echo $diag_relacionado;?>';
         document.form1.diag_rel1.value='<?php echo $diag_rel1;?>';
+        document.form1.estado.value='<?php echo $estado;?>';
     </script>
 </form>
 </body>

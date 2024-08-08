@@ -25,11 +25,20 @@ if(!isset($_SESSION['gid_usuario'])){
 
 require("mn_funciones.php");
 $link=conectarbd();
+
+$consultatipoOrden="SELECT id_orden,desc_tipo_orden 
+FROM vw_consulta_orden 
+WHERE tipo_ord='$_POST[tipo_orden]' and id_consulta='$_POST[id_consulta]'";
+//echo $consultatipoOrden;
+$consultatipoOrden=$link->query($consultatipoOrden);
+
+$rowtipoOrd=$consultatipoOrden->fetch_array();
+
 $consulta="SELECT fecha_con,CONCAT(nombres,' ',apellidos) AS nombre,fecha_nacim,TRUNCATE((DATEDIFF(fecha_con,fecha_nacim))/365.25,0) AS edad, direccion, telefono,ident_oper,tipo_iden,identificacion FROM vw_consulta WHERE id_consulta='$_POST[id_consulta]'";
 //echo $consulta;
 $consulta=$link->query($consulta);
 $row=$consulta->fetch_array(MYSQLI_ASSOC);
-encabezado("ORDENES");
+encabezado("ORDEN DE ".strtoupper($rowtipoOrd['desc_tipo_orden']));
 ?>
 <br>
 <br>
@@ -43,7 +52,7 @@ encabezado("ORDENES");
 <table class="Tbl3">
     <tr>
         <td>Identificación:</td>
-        <td><?php echo $row['tipo_iden']+' '+$row['identificacion'];?></td>
+        <td><?php echo $row['tipo_iden'].' '.$row['identificacion'];?></td>
     </tr>    
     <tr>
         <td>Nombre:</td>
@@ -60,7 +69,9 @@ encabezado("ORDENES");
 </table>
 
 <?php
-$consultaord="SELECT id_orden,desc_tipo_orden FROM vw_consulta_orden WHERE id_consulta='$_POST[id_consulta]'";
+$consultaord="SELECT id_orden,desc_tipo_orden 
+FROM vw_consulta_orden 
+WHERE tipo_ord='$_POST[tipo_orden]' and id_consulta='$_POST[id_consulta]'";
 //echo $consultaord;
 $consultaord=$link->query($consultaord);
 if($consultaord->num_rows<>0){

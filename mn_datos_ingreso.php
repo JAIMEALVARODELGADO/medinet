@@ -113,4 +113,13 @@
         <span class="etiqueta"><label for="observacion">Observación:</label></span>
         <span class="form-el"><textarea name='observacion_ing' cols='100' rows='3' maxlength='250'><?php echo $observacion_ing;?></textarea>
         </div>
+
+        <div class="fila">
+            <span class="etiqueta"><label>Estado: </label></span>
+            <span class="form-el">
+                <select name='estado'>
+                    <option value='AC'>Activo</option>
+                    <option value='IN'>Inactivo</option>
+                </select>
+        </div>
         </fieldset>

@@ -35,7 +35,7 @@ $alergia_medicame=$_POST['cual_med'];
 $alergia_alimento=$_POST['cual_ali'];
 
 
-$sql_="UPDATE ingreso SET jornada='$_POST[jornada]', fecha_ing='$_POST[fecha_ing]', peso='$_POST[peso]', id_eps='$_POST[id_eps]', control_esfin='$_POST[control_esfin]', desplazam='$desplazam', alimentacion_indep='$_POST[alimentacion_indep]', comunicacion_verbal='$_POST[comunicacion_verbal]', alergia_medicame='$alergia_medicame', alergia_alimento='$alergia_alimento',observacion_ing='$_POST[observacion_ing]',diag_prin='$_POST[diag_prin]',diag_rel1='$_POST[diag_rel1]' WHERE id_ingreso='$_POST[id_ingreso]'";   
+$sql_="UPDATE ingreso SET jornada='$_POST[jornada]', fecha_ing='$_POST[fecha_ing]', peso='$_POST[peso]', id_eps='$_POST[id_eps]', control_esfin='$_POST[control_esfin]', desplazam='$desplazam', alimentacion_indep='$_POST[alimentacion_indep]', comunicacion_verbal='$_POST[comunicacion_verbal]', alergia_medicame='$alergia_medicame', alergia_alimento='$alergia_alimento',observacion_ing='$_POST[observacion_ing]',diag_prin='$_POST[diag_prin]',diag_rel1='$_POST[diag_rel1]', estado='$_POST[estado]' WHERE id_ingreso='$_POST[id_ingreso]'";   
 //echo "<br>".$sql_;
 $link->query($sql_);
 ?>

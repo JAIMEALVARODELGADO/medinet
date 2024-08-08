@@ -99,7 +99,7 @@ else{
         <h4>Impresión</h4>
         <a href="#" onclick='imprimir_consulta(<?php echo $id_consulta;?>);' title='Imprimir Consulta'><span class="icon-print"></span> Consulta</a>
         <a href="#" onclick='imprimir_formula(<?php echo $id_consulta;?>);' title='Imprimir Formula'><span class="icon-print"></span> Formula</a>
-        <a href="#" onclick='imprimir_formula(<?php echo $id_consulta;?>);' title='Imprimir Ordenes'><span class="icon-print"></span> Ordenes</a>
+        <a href="#" onclick='imprimir_orden(<?php echo $id_consulta;?>);' title='Imprimir Ordenes'><span class="icon-print"></span> Ordenes</a>
     </div>
     <?php
 }

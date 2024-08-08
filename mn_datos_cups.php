@@ -1,7 +1,7 @@
 
     <div class="fila">
     <span class="etiqueta"><label for="codigo_cups">Código CUPS:</label></span>
-    <span class="form-el"><input type='text' id='codigo_cups' name='codigo_cups' maxlength='8' size='8' required=''/></span>
+    <span class="form-el"><input type='text' id='codigo_cups' name='codigo_cups' maxlength='12' size='12' required=''/></span>
     </div>
     <div class="fila">
     <span class="etiqueta"><label for="descripcion_cups">Descripción:</label></span>
